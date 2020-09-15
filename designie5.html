@@ -1,0 +1,1290 @@
+<HTML>
+<HEAD>
+<TITLE>NEWTONIAN TELESCOPE DESIGN PLANNER (I.E. version)</TITLE>
+<SCRIPT LANGUAGE="javascript" SRC="scopcalc5.js">
+</SCRIPT>
+<NOSCRIPT>
+Your browser is not JAVASCRIPT enabled to use this worksheet.<BR>
+Download Microsoft Internet Explorer or Netscape Navigator.
+</NOSCRIPT>
+</HEAD>
+<BASEFONT FACE="ARIAL" SIZE="3">
+<BODY BGCOLOR="#CFCFCF" onload="whenloads(document.scopcalc, document.eyepcalc, document.graphcalc);">
+<DIV ALIGN=center>
+
+<TABLE WIDTH=700 BORDER=5 CELLSPACING=5 CELLPADDING=0 ALIGN="center">
+<TR>
+	<TD>
+
+<TABLE COLS=4 WIDTH=620 BORDER=0 CELLSPACING=0 CELLPADDING=5 ALIGN="center">
+<TR>
+	<TD WIDTH=17%>
+	<TD WIDTH=36%>
+	<TD WIDTH=30%>
+	<TD>
+<TR>
+	<TH COLSPAN=4 ALIGN="center"><FONT SIZE=4 COLOR="#CC0000"><B><U>
+
+	NEWTONIAN TELESCOPE DESIGN PLANNER (v/IE1.3)</U>
+
+<FORM METHOD="post" NAME="scopcalc">
+<TR><TD>
+	<TABLE WIDTH=620 BORDER=0 CELLSPACING=0 CELLPADDING=5 ALIGN="center">
+	<TR>
+	<TD><FONT SIZE=2 COLOR="black"><B>
+	<UL>
+	<LI>Fields bordered in <FONT COLOR="#80FF80"><U>GREEN</U><FONT COLOR="black"> are for numerical entry or choice-selected values. Click on the field to change.
+	<LI>Fields initially containing "calc'd" and/or are bordered in <FONT COLOR="#FF8080"><U>RED</U><FONT COLOR="black"> are always calculated and cannot be manually entered.
+	<LI>Fields bordered in <FONT COLOR="#FFFF80"><U>YELLOW</U><FONT COLOR="black"> are either calculated (initially contain a "c/k" value) or will accept a keyed entry by clicking on the field. The "calc/keyed" mode can also be toggled by clicking on the checkbox beside the field. A visible "checkmark" indicates the field is currently configured for keyed entry. Changing a "c/k" designated field to manual entry will cause the associated dependent field to be changed from manual to "c/k" mode.
+	<LI>Fields bordered in <FONT COLOR="#8080FF"><U>BLUE</U><FONT COLOR="black"> are eyepiece specification values.
+	<LI>Unless denoted in the field description header, field units of measure are "inches" (by default) or "millimeters" as selected below:
+	<TR>
+	<TD ALIGN="center"><B><FONT SIZE=2 COLOR="#CC0000">
+	SELECT OTA GEOMETRY UNITS:<FONT COLOR="black">
+	<INPUT TYPE="radio" NAME="inormm" VALUE="0" CHECKED> Inches
+	<INPUT TYPE="radio" NAME="inormm" VALUE="1"> millimeters  >
+	<INPUT TYPE="button" NAME="convert" VALUE="CONVERT DEFAULTS" onClick="setdefs1(document.scopcalc, document.eyepcalc, document.graphcalc);">
+	</TR>
+	</TABLE>
+
+<COMMENT><!--    BEGIN PRIMARY MIRROR/RESOLUTION TABLE   --></COMMENT>
+
+<TR><TD>
+	<TABLE WIDTH=620 BORDER=0 CELLSPACING=0 CELLPADDING=2 ALIGN="center">
+
+
+	<COMMENT><!--         BUTTON SET #1 - OTA        --></COMMENT>
+	<TR>
+		<TD ALIGN="center">
+		<INPUT TYPE="button" NAME="default1" VALUE="RESET DEFAULTS" onClick="setdefs1(document.scopcalc, document.eyepcalc, document.graphcalc);">
+		<INPUT TYPE="button" NAME="calc1" VALUE="CALCULATE" onClick="validate(document.scopcalc, document.eyepcalc, document.graphcalc);">
+
+	</TABLE>
+</TABLE>
+
+<TABLE WIDTH=700 BORDER=5 CELLSPACING=5 CELLPADDING=0 ALIGN="center">
+<TR>
+<TD><TABLE COLS=11 WIDTH=678 BGCOLOR="white" BORDER=0 CELLSPACING=0 CELLPADDING=2 ALIGN="center">
+	<TR>
+		<TD>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=10%>
+	<TR>
+		<TD COLSPAN=11 ALIGN="center"><FONT SIZE=3 COLOR="#CC0000"><B>
+
+		<U>PRIMARY MIRROR</U>
+
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+		OPTICAL DIA<SUP>*</SUP>:
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="dia" SIZE="6" onFocus="this.value='';">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+		FOCAL LENGTH:
+
+		<TD ALIGN="center" BGCOLOR="#FFFF80">
+		<INPUT TYPE="text" NAME="fl" SIZE="6" onFocus="flin(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="flmode" onClick="flchk(this.form);">
+		<TD ALIGN="right"><B><FONT SIZE=2>
+
+		f/no:
+
+		<TD ALIGN="center" BGCOLOR="#FFFF80"><INPUT TYPE="text" NAME="fno" SIZE="6" onFocus="fnoin(this.form);">
+
+		<TD><INPUT TYPE="checkbox" NAME="fnomode" onClick="fnochk(this.form);">
+
+	<TR>
+		<TD>
+		<TD COLSPAN=9><B><FONT SIZE=2><SUP>*</SUP>The "Optical Diameter" of the primary mirror is the glass substrate OD minus 2 x the bevel width.
+
+	<TR>
+		<TD COLSPAN=3 ALIGN="center"><B><FONT SIZE=2>
+
+		RESOLUTION (arc sec):
+
+		<TD ALIGN="right"><B><FONT SIZE=2>
+
+		SPARROWS:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="sparrows" SIZE="6" onFocus="this.blur();">
+		<TD ALIGN="right"><B><FONT SIZE=2>
+
+		DAWES:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="dawes" SIZE="6" onFocus="this.blur();">
+		<TD ALIGN="right"><B><FONT SIZE=2>
+
+		RAYLEIGH:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="rayleigh" SIZE="6" onFocus="this.blur();">
+		<TD>
+	</TABLE>
+</TABLE>
+
+<COMMENT><!-- BEGIN OTA ILLUSTRATION --></COMMENT>
+
+<TABLE WIDTH=700 BORDER=5 CELLSPACING=5 CELLPADDING=0 ALIGN="center">
+<TR>
+<TD><TABLE COLS=11 WIDTH=678 BACKGROUND=scopedrw.gif BORDER=0 CELLSPACING=0 CELLPADDING=2 ALIGN="center">
+	<TR>
+		<TD>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=9%>
+		<TD WIDTH=10%>
+
+	<TR>
+		<TD COLSPAN=11 ALIGN="center"><FONT SIZE=4><U>SCOPE PARAMETER DIAGRAM</U>
+	<TR>
+		<TD COLSPAN=3 ALIGN="right"><B><FONT SIZE=2>
+
+		MIN. FOCUSER ID:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080">
+		<INPUT TYPE="text" NAME="mindtdia" SIZE="6" onFocus="this.blur();">
+		<TD COLSPAN=3 ALIGN="right"><B><FONT SIZE=2>
+
+		SELECT FOCUSER ID:
+
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<SELECT NAME="focsizs" SIZE="1">
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+		</SELECT>
+
+	<TR>
+		<TD COLSPAN=3 ALIGN="center" COLSPAN=><B><FONT SIZE=2>
+
+		FOC.TOT.TRAVEL
+
+		<TD COLSPAN=2>
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="drawlen" SIZE="6" onFocus="this.value='';">
+		<TD COLSPAN=4><B><FONT SIZE=2>
+
+		FOCUSER DRAWTUBE LENGTH
+
+	<TR>
+		<TD>
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="fcstrv" SIZE="6" onFocus="this.value='';">
+		<TD COLSPAN=7 ALIGN="right"><B><FONT SIZE=2>
+
+		PRIMARY CELL TUBE RECESS:
+
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="cellrec" SIZE="6" onFocus="this.value='';">
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+		FOC.MIN.HT:
+
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="fcsmin" SIZE="6" onFocus="this.value='';">
+		<TD>
+		<TD COLSPAN=3 ALIGN="right"><B><FONT SIZE=2>
+
+		PRIMARY EDGE THK:
+
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="edgthk" SIZE="6" onFocus="this.value='';">
+	<TR>
+		<TD COLSPAN=6>
+		<TD COLSPAN=2 ALIGN="center" BGCOLOR="white"><B><FONT SIZE=2 COLOR=#CC0000>
+
+		SCOPE O.T.A.
+
+	<TR>
+		<TD COLSPAN=2>
+		<TD ALIGN="center" BGCOLOR="#FFFF80">
+		<INPUT TYPE="text" NAME="fpdist" SIZE="5" onFocus="fpdin(this.form);">
+		<TD>
+		<INPUT TYPE="checkbox" NAME="fpdmode" onClick="fpdchk(this.form);">
+	<TR>
+		<TD COLSPAN=3 ALIGN="right"><B><FONT SIZE=2>
+
+		FP DIST <SUP>**</SUP>
+
+	<TR>
+		<TD COLSPAN=6>
+		<TD COLSPAN=3 ALIGN="left"><B><FONT SIZE=2>
+
+		PRIMARY CTR. THK.
+
+	<TR>
+		<TD COLSPAN=6>
+		<TD>
+		<TD ALIGN="center" BGCOLOR="#FF8080">
+		<INPUT TYPE="text" NAME="ctrthk" SIZE="6" onFocus="this.blur();">
+		<TD>
+		<TD ALIGN="right"><B><FONT SIZE=2>
+
+		TUBE
+
+	<TR>
+		<TD COLSPAN=9>
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="tubeod" SIZE="5" onFocus="this.value='';">
+	<TR>
+		<TD COLSPAN=5>
+		<TD ALIGN="center" BGCOLOR="#FFFF80">
+		<INPUT TYPE="text" NAME="tubeid" SIZE="6" onFocus="idin(this.form);">
+		<TD COLSPAN=2>
+		<INPUT TYPE="checkbox" NAME="idmode" onClick="idchk(this.form);">
+		<B><FONT SIZE=2>
+
+		TUBE I.D.
+
+		<TD>
+		<TD ALIGN="right"><B><FONT SIZE=2>
+
+		O.D.
+
+	<TR>
+		<TD COLSPAN=3>
+		<TD COLSPAN=2 ALIGN="center"><B><FONT SIZE=2>
+
+		TUBE
+
+	<TR>
+		<TD COLSPAN=3>
+		<TD COLSPAN=2 ALIGN="center"><B><FONT SIZE=2>
+
+		THICKNESS
+
+	<TR>
+		<TD COLSPAN=4>
+		<TD ALIGN="center" BGCOLOR="#FFFF80">
+		<INPUT TYPE="text" NAME="tubethk" SIZE="5" onFocus="thkin(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="thkmode" onClick="thkchk(this.form);">
+	<TR>
+		<TD COLSPAN=2>
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="spdrtodia" SIZE="6" onFocus="this.value='';">
+		<TD COLSPAN=4 ALIGN="right"><B><FONT SIZE=2>
+
+		PRIMARY CELL THICKNESS:
+
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="cellthk" SIZE="6" onFocus="this.value='';">
+	<TR>
+		<TD COLSPAN=2 ALIGN="right">
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="spiderin" SIZE="6" onFocus="this.value='';">
+		<TD COLSPAN=5 ALIGN="right"><B><FONT SIZE=2>
+
+		FOCUSER C/L FROM TUBE REAR:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080">
+		<INPUT TYPE="text" NAME="otatofc" SIZE="6" onFocus="this.blur();">
+	<TR>
+		<TD COLSPAN=7 ALIGN="right"><B><FONT SIZE=2>
+
+		SPIDER MOUNT FROM TUBE REAR:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080">
+		<INPUT TYPE="text" NAME="otatosp" SIZE="6" onFocus="this.blur();">
+	<TR>
+		<TD COLSPAN=6 ALIGN="right"><B><FONT SIZE=2>
+
+		TOTAL TUBE LENGTH:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080">
+		<INPUT TYPE="text" NAME="tubelen" SIZE="6" onFocus="this.blur();">
+	</TABLE>
+</TABLE>
+
+<TABLE WIDTH=700 BORDER=5 CELLSPACING=5 CELLPADDING=0 ALIGN="center">
+<TR>
+<TD><TABLE WIDTH=620 BORDER=0 CELLSPACING=0 CELLPADDING=2 ALIGN="center">
+
+	<COMMENT><!--         BUTTON SET #2 - OTA        --></COMMENT>
+	<TR>
+		<TD ALIGN="center">
+		<INPUT TYPE="button" NAME="default2" VALUE="RESET DEFAULTS" onClick="setdefs1(document.scopcalc, document.eyepcalc, document.graphcalc);">
+		<INPUT TYPE="button" NAME="calc2" VALUE="CALCULATE" onClick="validate(document.scopcalc, document.eyepcalc, document.graphcalc);">
+
+	</TABLE>
+
+<TR>
+<TD><TABLE WIDTH=620 BORDER=5 CELLSPACING=0 CELLPADDING=5 ALIGN="center">
+	<B><FONT SIZE=2><SUP>**</SUP>The focal plane distance depicted in the diagram is from the OA fold at the secondary to the focal plane inside the focuser. By default, the focal plane is placed at the midpoint of focuser drawtube travel.  If this distance is already known in advance, it should be manually "keyed in" for more OTA dimensional accuracy.
+	<P>
+	Before "Printing" the scope diagram for your off-line reference, be sure and set your browser option to enable printing of "Background Images" - In IE5.0, it's in "Tools/Internet Options/Advanced/Printers/Print Background Colors and Images".
+	<P>
+	If an eyepiece "group" average field stop distance from the top of the drawtube is known, a more accurate F.P. Distance value for the eyepiece group can be determined for manual entry as follows:
+	<OL>
+	<LI> Enter all other parameters and "calculate" an F.P. Distance.
+	<LI> Add 1/2 the total focuser travel distance to the "calculated" F.P. Distance value.
+	<LI> Add the E.P."group" average field stop distance (a field stop located below the top of the drawtube is NEGATIVE distance)
+	<LI> Manually key in this new value into the F.P. Distance field.
+	</TABLE>
+
+<COMMENT><!-- BEGIN "MINIMUM" ILLUMINATION TABLE    --></COMMENT>
+
+<TR>
+<TD><TABLE COLS=10 WIDTH=620 BORDER=0 CELLSPACING=0 CELLPADDING=2 ALIGN="center">
+	<TR>
+	<TD WIDTH=10%>
+	<TD WIDTH=10%>
+	<TD WIDTH=10%>
+	<TD WIDTH=10%>
+	<TD WIDTH=15%>
+	<TD WIDTH=10%>
+	<TD WIDTH=10%>
+	<TD WIDTH=10%>
+	<TD WIDTH=10%>
+	<TD>
+	<TR>
+	<TD COLSPAN=10 ALIGN="center"><FONT SIZE=3 COLOR=#CC0000><B><U>
+
+	DESIRED MINIMUM 100% FIELD ILLUMINATION
+
+	<TR>
+	<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+	ANGLE (arc min):
+
+	<TD ALIGN="center" BGCOLOR="#80FF80">
+	<INPUT TYPE="text" NAME="millum" SIZE="6" onFocus="this.value='';">
+	<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+	DIA. (mm): Edberg<SUB>(3)</SUB>:
+
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="m100d1" SIZE="6" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="right"><B><FONT SIZE=2>
+
+	Berry<SUB>(2)</SUB>:
+
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="m100d2" SIZE="6" onFocus="this.blur();">
+	<TR>
+	<TD COLSPAN=10 ALIGN="center"><FONT SIZE=3 COLOR=#CC0000><B><U>
+
+	MINIMUM DIAGONAL SIZE (MA) REQUIRED
+
+	<TR>
+	<TD ALIGN="right"><B><FONT SIZE=2>
+
+	Berry<SUB>(1)</SUB>:
+
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="minaxis1" SIZE="6" onFocus="this.blur();">
+	<TD ALIGN="right"><B><FONT SIZE=2>
+
+	Dakin<SUB>(2)</SUB>:
+
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="minaxis2" SIZE="6" onFocus="this.blur();">
+	<TD ALIGN="right"><B><FONT SIZE=2>
+
+	Edberg<SUB>(3)</SUB>:
+
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="minaxis3" SIZE="6" onFocus="this.blur();">
+	<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+	Peters & Pike<SUB>(6)</SUB>:
+
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="minaxis4" SIZE="6" onFocus="this.blur();">
+	</TABLE>
+
+<COMMENT><!--    BEGIN DIAGONAL & ACTUAL ILLUMINATION TABLE   --></COMMENT>
+
+<TR>
+<TD><TABLE COLS=10 WIDTH=650 BORDER=0 CELLSPACING=0 CELLPADDING=2 ALIGN="center">
+	<TR>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=15%>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD>
+	<TR>
+		<TD COLSPAN=10 ALIGN="center"><FONT SIZE=3><B><U><FONT COLOR=#CC0000>
+
+	FINAL DIAGONAL SELECTION
+
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+		Pick a std. size:
+
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<SELECT NAME="diasizs" SIZE="1" onFocus="stddia(this.form);">
+			<OPTION VALUE=0>CUST
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+		</SELECT>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+		or enter a custom size:
+
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="diasizc" SIZE="6" onFocus="custdia(this.form);">
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+		% OBSTRUCTION:
+
+		<TD ALIGN="right"><B><FONT SIZE=2>
+
+		AREA:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="pctblka" SIZE="6" onFocus="this.blur();">
+
+		<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+		DIAMETRICAL:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="pctblkd" SIZE="6" onFocus="this.blur();">
+
+	<TR>
+		<TD COLSPAN=10 ALIGN="center"><FONT SIZE=3 COLOR=#CC0000><B><U>
+
+		ACTUAL 100% FIELD ILLUMINATION
+
+	<TR>
+		<TD COLSPAN=3 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		ANGLE (arc min): Edberg<SUB>(3)</SUB>:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="a100i1" SIZE="6" onFocus="this.blur();">
+		<TD ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		Berry<SUB>(1)</SUB>:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="a100i2" SIZE="6" onFocus="this.blur();">
+
+	<TR>
+		<TD COLSPAN=3 ALIGN="right"><B><FONT SIZE=2>
+
+		DIA. (mm): Edberg<SUB>(3)</SUB>:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="a100d1" SIZE="6" onFocus="this.blur();">
+		<TD ALIGN="right"><B><FONT SIZE=2>
+
+		Berry<SUB>(1)</SUB>:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="a100d2" SIZE="6" onFocus="this.blur();">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+		Peters & Pike<SUB>(6)</SUB>:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="a100d3" SIZE="6" onFocus="this.blur();">
+	</TR>
+	<TR>
+		<TD COLSPAN=10 ALIGN="center"><FONT SIZE=3 COLOR=#CC0000><B><U>
+
+		DIAGONAL OFFSET
+
+	<TR>
+		<TD COLSPAN=3 ALIGN="right"><B><FONT SIZE=2>
+
+		Francis<SUB>(4)</SUB>:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="offset1" SIZE="6" onFocus="this.blur();">
+		<TD ALIGN="right"><B><FONT SIZE=2>
+
+		Dakin<SUB>(2)</SUB>:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="offset2" SIZE="6" onFocus="this.blur();">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT SIZE=2>
+
+		Masson<SUB>(5)</SUB>:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="offset3" SIZE="6" onFocus="this.blur();">
+
+<COMMENT><!--         BUTTON SET #3 - OTA        --></COMMENT>
+
+	<TR><TD COLSPAN=10><HR SIZE="5" NOSHADE>
+
+	<TR>
+		<TD COLSPAN=10 ALIGN="center">
+		<INPUT TYPE="button" NAME="default3" VALUE="RESET DEFAULTS" onClick="setdefs1(document.scopcalc, document.eyepcalc, document.graphcalc);">
+		<INPUT TYPE="button" NAME="calc3" VALUE="CALCULATE" onClick="validate(document.scopcalc, document.eyepcalc, document.graphcalc);">
+
+	</TABLE>
+</FORM>
+
+<FORM METHOD="post" NAME="graphcalc">
+<TR><TD>
+	<TABLE WIDTH=700 RULES="rows" BORDER=0 CELLSPACING=8 CELLPADDING=2 ALIGN="center">
+	<TR ALIGN="center">
+	<TD COLSPAN=9 ALIGN="center"><FONT SIZE=3 COLOR=#CC0000><B><U>
+
+	ACTUAL ILLUMINATION VS. FIELD DIAMETER TABLE
+
+	</U>
+	<BR><FONT color="black" SIZE=2>Peters & Pike<SUB>(6)</SUB>
+	</TR>
+	<TR ALIGN="center">
+	<TD ALIGN="center" WIDTH=12%><B>mm<BR>Dia.
+	<TD ALIGN="center" WIDTH=12%><B>arc min<BR>Angle
+	<TD ALIGN="center" WIDTH=12%><B>Illum.<BR>%
+	<TD ALIGN="center" WIDTH=12%><B>Mag.<BR>Loss
+	<TD SIZE=4%>
+	<TD ALIGN="center" WIDTH=12%><B>mm<BR>Dia.
+	<TD ALIGN="center" WIDTH=12%><B>arc min<BR>Angle
+	<TD ALIGN="center" WIDTH=12%><B>Illum.<BR>%
+	<TD ALIGN="center" WIDTH=12%><B>Mag.<BR>Loss
+
+	<TR ALIGN="center">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia00" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang00" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill00" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag00" SIZE="5" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia11" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang11" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill11" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag11" SIZE="5" onFocus="this.blur();">
+
+	<TR ALIGN="center">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia01" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang01" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill01" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag01" SIZE="5" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia12" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang12" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill12" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag12" SIZE="5" onFocus="this.blur();">
+
+	<TR ALIGN="center">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia02" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang02" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill02" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag02" SIZE="5" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia13" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang13" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill13" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag13" SIZE="5" onFocus="this.blur();">
+
+	<TR ALIGN="center">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia03" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang03" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill03" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag03" SIZE="5" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia14" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang14" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill14" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag14" SIZE="5" onFocus="this.blur();">
+
+	<TR ALIGN="center">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia04" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang04" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill04" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag04" SIZE="5" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia15" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang15" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill15" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag15" SIZE="5" onFocus="this.blur();">
+
+	<TR ALIGN="center">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia05" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang05" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill05" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag05" SIZE="5" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia16" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang16" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill16" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag16" SIZE="5" onFocus="this.blur();">
+
+	<TR ALIGN="center">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia06" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang06" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill06" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag06" SIZE="5" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia17" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang17" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill17" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag17" SIZE="5" onFocus="this.blur();">
+
+	<TR ALIGN="center">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia07" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang07" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill07" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag07" SIZE="5" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia18" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang18" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill18" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag18" SIZE="5" onFocus="this.blur();">
+
+	<TR ALIGN="center">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia08" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang08" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill08" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag08" SIZE="5" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia19" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang19" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill19" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag19" SIZE="5" onFocus="this.blur();">
+
+	<TR ALIGN="center">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia09" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang09" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill09" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag09" SIZE="5" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia20" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang20" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill20" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag20" SIZE="5" onFocus="this.blur();">
+
+	<TR ALIGN="center">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia10" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang10" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill10" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag10" SIZE="5" onFocus="this.blur();">
+	<TD>
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="fdia21" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ang21" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="ill21" SIZE="5" onFocus="this.blur();">
+	<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="mag21" SIZE="5" onFocus="this.blur();">
+	</TR>
+	<COMMENT><!--         BUTTON SET #7 - ILLUMINATION       --></COMMENT>
+
+	<TR>
+	<TD COLSPAN=9 ALIGN="center">
+	<INPUT TYPE="button" NAME="default7" VALUE="RESET DEFAULTS" onClick="setdefs1(document.scopcalc, document.eyepcalc, document.graphcalc);">
+	<INPUT TYPE="button" NAME="calc7" VALUE="CALCULATE" onClick="validate(document.scopcalc, document.eyepcalc, document.graphcalc);">
+
+	</TR>
+	</TABLE>
+
+</FORM>
+
+<TR><TD>
+	<TABLE WIDTH=700 BORDER=0 CELLSPACING=0 CELLPADDING=2 ALIGN="center">
+	<TR>
+	<TD><B><FONT SIZE=2>
+	<SUP>(1)</SUP>Berry - "Build Your Own Telescope", Scribner's Sons, 1985, Pa. 27
+	<BR><SUP>(2)</SUP>Dakin - "S&T", Dec. 1962, Pa. 368; correction - "S&T", Feb. 1963, Pa. 114
+	<BR><SUP>(3)</SUP>Edberg - "Telescope Making" #18, Winter 1982/83, Pa. 20, Eqns. 1, 4 & 6
+	<BR><SUP>(4)</SUP>Francis - "Newtonian Notes", 1979, Pa. 34, Eqn. 9
+	<BR><SUP>(5)</SUP>Masson - "S&T", Dec. 1959, Pa. 126
+	<BR><SUP>(6)</SUP>Peters & Pike - "S&T", Mar. 1977, PP. 220-223
+	</TR>
+	</TABLE>
+
+
+<FORM METHOD="post" NAME="eyepcalc">
+
+	<COMMENT><!--   LOW POWER EYEPIECE DATA    --></COMMENT>
+
+<TR><TD><TABLE COLS=11 WIDTH=650 BORDER=0 CELLSPACING=0 CELLPADDING=2 ALIGN="center">
+	<TR>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=8%>
+		<TD WIDTH=10%>
+		<TD>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=5%>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+
+	<TR>
+		<TD COLSPAN=11 ALIGN="center"><FONT FACE="ARIAL" SIZE=5 COLOR=#CC0000><B>EYEPIECE SELECTIONS
+
+	<TR>
+		<TD COLSPAN=11><FONT SIZE=2><B>
+
+		Below this dialog there are 3 sets of eyepiece calculations for "low", "mid" and "hi" powers.  Each section provides the option to select a commercial brand and model of eyepiece as well as a Barlow power to be used with them.
+
+		<P>Initially, an exit pupil size of 6mm (default) determines the theoretical "low" power eyepiece mm focal length recommended for the specified primary objective. The "mid & hi" power EP values are then determined based on even multiples of the "Barlow" power(s) selected. If only one Barlow is to be used with all 3 categories, enter the x value in the low power Barlow field (defaults to 2x).
+
+		<P>Keep in mind that an eyepiece selection resulting in an exit pupil size greater than 7mm (considered the typical maximum dilated human iris) may cause some edge vignetting of the available true field provided by the eyepiece.
+
+		<P>When the "calculate" button is clicked BEFORE selecting and "using" an eyepiece model, the model having the nearest mm size for the selected eyepiece brand in each category will be displayed in the "EP CHOICE" field. If a specific eyepiece is then selected in one or more categories (low, mid & high power) and activated with the associated "USE" checkbox, you must recalculate to obtain the correct associated values for the selected eyepiece(s). Also, if you change eyepiece brands, you must recalculate to display the nearest size eyepiece for the new brand.
+
+		<P>The eyepiece field stop diameter (FSD), true field of view (TFOV), effective field of view (EFOV), apparent field of view (AFOV), telescope focal length (TFL) and eyepiece focal length (EPFL) are related by the following equations: TFOV=FSD*57.3/TFL; EFOV=FSD*57.3/EPFL; EFOV=TFOV*(TFL/EPFL).  When the FSD is published (i.e. TeleVue), an EFOV & TFOV can be accurately calculated.  When the FSD is unknown (as is the usual case), the published AFOV (which is generally inflated over the EFOV) is substituted for the EFOV resulting in a corresponding "inflated" calculated FSD.
+
+		<TR><TD COLSPAN=11><HR SIZE="5" NOSHADE>
+
+	<TR>
+		<TD COLSPAN=11 ALIGN="center"><FONT FACE="ARIAL" SIZE=3 COLOR="#CC0000"><B><U>
+
+		LOW POWER EYEPIECE DATA
+
+		<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		LOW EP FL (mm):
+
+		<TD ALIGN="center" BGCOLOR="#FFFF80"><INPUT TYPE="text" NAME="lopowr" SIZE="6" 	onFocus="lopowrin(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="lopowrmode" onClick="lopowrchk(this.form);">
+		<TD COLSPAN=3 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		(MAX) EXIT PUPIL (mm):
+
+		<TD ALIGN="center" BGCOLOR="#FFFF80"><INPUT TYPE="text" NAME="mxpup" SIZE="6" 	onFocus="mxpupin(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="mxpupmode" onClick="mxpupchk(this.form);">
+		<TD ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2 COLOR="#CC0000">
+
+		ScopeX:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="lomag" SIZE="6" 	onFocus="this.blur();">
+
+	<TR>
+		<TD COLSPAN=11><B><FONT FACE="ARIAL" SIZE=2>SELECT A BRAND:
+		<INPUT TYPE="radio" NAME="lepbrand" VALUE="1" onClick="lepopt(this.form)" CHECKED> 	TeleVue
+		<INPUT TYPE="radio" NAME="lepbrand" VALUE="2" onClick="lepopt(this.form)"> Takahashi
+		<INPUT TYPE="radio" NAME="lepbrand" VALUE="3" onClick="lepopt(this.form)"> Pentax
+		<INPUT TYPE="radio" NAME="lepbrand" VALUE="4" onClick="lepopt(this.form)"> Meade
+
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EP CHOICE:
+
+		<TD COLSPAN=2 BGCOLOR="#8080FF">
+		<SELECT NAME="lep" SIZE="1" onChange="lepin(this.form);">
+				<OPTION>------------------------
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+				<OPTION>
+		</SELECT>
+
+		<TD><INPUT TYPE="checkbox" NAME="louse" onClick="lousechk(this.form);"><B><FONT 	FACE="ARIAL" SIZE=2>
+
+		USE
+
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EFOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#8080FF"><INPUT TYPE="text" NAME="loepfov" SIZE="6" 	onFocus="loepfovin(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="loepfovmode" onClick="loepfovchk(this.form);">
+		<TD ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		E.R.(mm):
+
+		<TD ALIGN="center" BGCOLOR="#8080FF"><INPUT TYPE="text" NAME="leyrlf" SIZE="6" 	onFocus="this.blur();">
+
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		FIELD DIA (mm):
+
+		<TD ALIGN="center" BGCOLOR="#8080FF"><INPUT TYPE="text" NAME="lofdia" SIZE="6" 	onFocus="lofdiain(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="lofdiamode" onClick="lofdiachk(this.form);">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		TRUE FOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="loacfovd" SIZE="6" 	onFocus="this.blur();">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		(arc min):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="loacfova" SIZE="6" 	onFocus="this.blur();">
+
+	<TR><TD><TD COLSPAN=9><HR SIZE="3">
+
+	<TR>
+		<TD ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		WITH A
+
+		<TD ALIGN="center" BGCOLOR="#80FF80">
+		<INPUT TYPE="text" NAME="barlox1" SIZE="6" onFocus="this.value='';">
+		<TD COLSPAN=2><B><FONT FACE="ARIAL" SIZE=2>
+
+		X BARLOW:
+
+		<TD COLSPAN=3 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EXIT PUPIL (mm):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="loxpupb" SIZE="6" 	onFocus="this.blur();">
+		<TD>
+		<TD ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2 COLOR="#CC0000">
+
+		ScopeX:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="lomagb" SIZE="6" 	onFocus="this.blur();">
+
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EFOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="loepfovb" SIZE="6" 	onFocus="this.blur();">
+		<TD>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		TRUE FOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="loacfovdb" SIZE="6" 	onFocus="this.blur();">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		(arc min):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="loacfovab" SIZE="6" 	onFocus="this.blur();">
+
+		<COMMENT><!--         BUTTON SET #4 - ILLUMINATION       --></COMMENT>
+
+	<TR><TD COLSPAN=11><HR SIZE="5" NOSHADE>
+
+	<TR>
+		<TD COLSPAN=11 ALIGN="center"><B><FONT FACE="ARIAL" SIZE=2>
+		<INPUT TYPE="button" NAME="default4" VALUE="RESET DEFAULTS" onClick="setdefs1(document.scopcalc, document.eyepcalc, document.graphcalc);">
+		<INPUT TYPE="button" NAME="calc4" VALUE="CALCULATE" onClick="validate(document.scopcalc, document.eyepcalc, document.graphcalc);">
+
+	<TR><TD COLSPAN=11><HR SIZE="5" NOSHADE>
+
+	</TABLE>
+
+	<COMMENT><!--   MID POWER EYEPIECE DATA    --></COMMENT>
+
+	<TABLE COLS=11 WIDTH=650 BORDER=0 CELLSPACING=0 CELLPADDING=2 ALIGN="center">
+	<TR>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=8%>
+		<TD WIDTH=10%>
+		<TD>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=5%>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+	<TR>
+		<TD COLSPAN=11 ALIGN="center"><FONT FACE="ARIAL" SIZE=3 COLOR="#CC0000"><B><U>
+
+		MID POWER EYEPIECE DATA
+
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		MID EP FL (mm):
+
+		<TD ALIGN="center" BGCOLOR="#FFFF80"><INPUT TYPE="text" NAME="midpowr" SIZE="6" 	onFocus="midpowrin(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="midpowrmode" onClick="midpowrchk(this.form);">
+		<TD COLSPAN=3 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EXIT PUPIL (mm):
+
+	<TD ALIGN="center" BGCOLOR="#FF8080">
+		<INPUT TYPE="text" NAME="midxpup" SIZE="6" onFocus="this.blur();">
+		<TD>
+		<TD ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2 COLOR="#CC0000">
+
+		ScopeX:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="midmag" SIZE="6" 	onFocus="this.blur();">
+
+	<TR>
+		<TD COLSPAN=11><B><FONT FACE="ARIAL" SIZE=2>SELECT A BRAND:
+		<INPUT TYPE="radio" NAME="mepbrand" VALUE="1" onClick="mepopt(this.form)" CHECKED> 	TeleVue
+		<INPUT TYPE="radio" NAME="mepbrand" VALUE="2" onClick="mepopt(this.form)"> Takahashi
+		<INPUT TYPE="radio" NAME="mepbrand" VALUE="3" onClick="mepopt(this.form)"> Pentax
+		<INPUT TYPE="radio" NAME="mepbrand" VALUE="4" onClick="mepopt(this.form)"> Meade
+
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EP CHOICE:
+
+		<TD COLSPAN=2 ALIGN="center" BGCOLOR="#8080FF">
+		<SELECT NAME="mep" SIZE="1" onChange="mepin(this.form);">
+			<OPTION>------------------------
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+		</SELECT>
+
+		<TD><INPUT TYPE="checkbox" NAME="miduse" onClick="midusechk(this.form);"><B><FONT FACE="ARIAL" SIZE=2>
+
+		USE
+
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EFOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#8080FF"><INPUT TYPE="text" NAME="midepfov" SIZE="6" 	onFocus="midepfovin(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="midepfovmode" onClick="midepfovchk(this.form);">
+
+		<TD ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		E.R.(mm):
+
+		<TD ALIGN="center" BGCOLOR="#8080FF"><INPUT TYPE="text" NAME="meyrlf" SIZE="6" 	onFocus="this.blur();">
+
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		FIELD. DIA (mm):
+
+		<TD ALIGN="center" BGCOLOR="#8080FF"><INPUT TYPE="text" NAME="midfdia" SIZE="6" 	onFocus="midfdiain(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="midfdiamode" onClick="midfdiachk(this.form);">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		TRUE FOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="midacfovd" SIZE="6" 	onFocus="this.blur();">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		(arc min):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="midacfova" SIZE="6" 	onFocus="this.blur();">
+	<TR>
+
+
+	<TR><TD><TD COLSPAN=9><HR SIZE="3">
+
+	<TR>
+		<TD ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		WITH A
+
+		<TD ALIGN="center" BGCOLOR="#FFFF80">
+		<INPUT TYPE="text" NAME="barlox2" SIZE="6" onFocus="barlox2in(this.form);">
+		<TD COLSPAN=3><B><FONT FACE="ARIAL" SIZE=2>
+		<INPUT TYPE="checkbox" NAME="barlox2mode" onClick="barlox2chk(this.form);">
+
+		X BARLOW:
+
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EXIT PUPIL (mm):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="midxpupb" SIZE="6" 	onFocus="this.blur();">
+		<TD>
+		<TD ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2 COLOR="#CC0000">
+
+		ScopeX:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="midmagb" SIZE="6" 	onFocus="this.blur();">
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EFOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="midepfovb" SIZE="6" 	onFocus="this.blur();">
+		<TD COLSPAN=3 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		TRUE FOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="midacfovdb" SIZE="6" 	onFocus="this.blur();">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		(arc min):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="midacfovab" SIZE="6" 	onFocus="this.blur();">
+
+		<COMMENT><!--         BUTTON SET #5 - ILLUMINATION       --></COMMENT>
+
+	<TR><TD COLSPAN=11><HR SIZE="5" NOSHADE>
+
+	<TR>
+		<TD COLSPAN=11 ALIGN="center"><B><FONT FACE="ARIAL" SIZE=2>
+		<INPUT TYPE="button" NAME="default5" VALUE="RESET DEFAULTS" onClick="setdefs1(document.scopcalc, document.eyepcalc, document.graphcalc);">
+		<INPUT TYPE="button" NAME="calc5" VALUE="CALCULATE" onClick="validate(document.scopcalc, document.eyepcalc, document.graphcalc);">
+
+	<TR><TD COLSPAN=11><HR SIZE="5" NOSHADE>
+
+	</TABLE>
+
+	<COMMENT><!--   HI POWER EYEPIECE DATA    --></COMMENT>
+
+	<TABLE COLS=11 WIDTH=650 BORDER=0 CELLSPACING=0 CELLPADDING=2 ALIGN="center">
+	<TR>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=8%>
+		<TD WIDTH=10%>
+		<TD>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+		<TD WIDTH=5%>
+		<TD WIDTH=10%>
+		<TD WIDTH=10%>
+
+	<TR>
+		<TD COLSPAN=11 ALIGN="center"><FONT FACE="ARIAL" SIZE=3 COLOR="#CC0000"><B><U>
+
+		HI POWER EYEPIECE DATA
+
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		HI EP FL (mm):
+
+		<TD ALIGN="center" BGCOLOR="#FFFF80">
+		<INPUT TYPE="text" NAME="hipowr" SIZE="6" onFocus="hipowrin(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="hipowrmode" onClick="hipowrchk(this.form);">
+		<TD COLSPAN=3 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EXIT PUPIL (mm):
+
+		<TD BGCOLOR="#FF8080">
+		<INPUT TYPE="text" NAME="hixpup" SIZE="6" onFocus="this.blur();">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2 COLOR="#CC0000">
+
+		ScopeX:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="himag" SIZE="6" 	onFocus="this.blur();">
+
+	<TR>
+		<TD COLSPAN=11><B><FONT FACE="ARIAL" SIZE=2>SELECT A BRAND:
+		<INPUT TYPE="radio" NAME="hepbrand" VALUE="1" onClick="hepopt(this.form)" CHECKED> 	TeleVue
+		<INPUT TYPE="radio" NAME="hepbrand" VALUE="2" onClick="hepopt(this.form)"> Takahashi
+		<INPUT TYPE="radio" NAME="hepbrand" VALUE="3" onClick="hepopt(this.form)"> Pentax
+		<INPUT TYPE="radio" NAME="hepbrand" VALUE="4" onClick="hepopt(this.form)"> Meade
+
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EP CHOICE:
+
+		<TD COLSPAN=2 ALIGN="center" BGCOLOR="#8080FF">
+		<SELECT NAME="hep" SIZE="1" onChange="hepin(this.form);">
+			<OPTION>------------------------
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+			<OPTION>
+		</SELECT>
+
+		<TD><INPUT TYPE="checkbox" NAME="hiuse" onClick="hiusechk(this.form);"><B><FONT FACE="ARIAL" SIZE=2>
+
+		USE
+
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EFOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#8080FF"><INPUT TYPE="text" NAME="hiepfov" SIZE="6" 	onFocus="hiepfovin(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="hiepfovmode" onClick="hiepfovchk(this.form);">
+		<TD ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		E.R.(mm):
+
+		<TD ALIGN="center" BGCOLOR="#8080FF"><INPUT TYPE="text" NAME="heyrlf" SIZE="6" 	onFocus="this.blur();">
+
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		FIELD. DIA (mm):
+
+		<TD ALIGN="center" BGCOLOR="#8080FF"><INPUT TYPE="text" NAME="hifdia" SIZE="6" 	onFocus="hifdiain(this.form);">
+		<TD><INPUT TYPE="checkbox" NAME="hifdiamode" onClick="hifdiachk(this.form);">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		TRUE FOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="hiacfovd" SIZE="6" 	onFocus="this.blur();">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		(arc min):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="hiacfova" SIZE="6" 	onFocus="this.blur();">
+
+	<TR><TD><TD COLSPAN=9><HR SIZE="3">
+
+	<TR>
+		<TD ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		WITH A
+
+		<TD ALIGN="center" BGCOLOR="#FFFF80">
+		<INPUT TYPE="text" NAME="barlox3" SIZE="6" onFocus="barlox3in(this.form);">
+		<TD COLSPAN=3><B><FONT FACE="ARIAL" SIZE=2>
+		<INPUT TYPE="checkbox" NAME="barlox3mode" onClick="barlox3chk(this.form);">
+
+		X BARLOW:
+
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EXIT PUPIL (mm):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="hixpupb" SIZE="6" 	onFocus="this.blur();">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2 COLOR="#CC0000">
+
+		ScopeX:
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="himagb" SIZE="6" 	onFocus="this.blur();">
+	<TR>
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		EFOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="hiepfovb" SIZE="6" 	onFocus="this.blur();">
+		<TD COLSPAN=3 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		True FOV (deg):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="hiacfovdb" SIZE="6" 	onFocus="this.blur();">
+		<TD COLSPAN=2 ALIGN="right"><B><FONT FACE="ARIAL" SIZE=2>
+
+		(arc min):
+
+		<TD ALIGN="center" BGCOLOR="#FF8080"><INPUT TYPE="text" NAME="hiacfovab" SIZE="6" 	onFocus="this.blur();">
+
+		<COMMENT><!--         BUTTON SET #6 - ILLUMINATION       --></COMMENT>
+	<TR>
+		<TD COLSPAN=11 ALIGN="center"><B><FONT FACE="ARIAL" SIZE=2>
+		<INPUT TYPE="button" NAME="default6" VALUE="RESET DEFAULTS" onClick="setdefs1(document.scopcalc, document.eyepcalc, document.graphcalc);">
+		<INPUT TYPE="button" NAME="calc6" VALUE="CALCULATE" onClick="validate(document.scopcalc, document.eyepcalc, document.graphcalc);">
+
+	<TR><TD COLSPAN=11><HR SIZE="5" NOSHADE>
+	<TR><TD COLSPAN=11 VALIGN="bottom" ALIGN="center"><B><FONT FACE="ARIAL" SIZE=2>Revised:
+
+	3/23/03
+
+	<BR>(<I>c</I>) <I>Copyright J. Fly, 1999 All Rights Reserved</I>
+	<BR><A HREF="mailto:flyj@catseyecollimation.com"><B><FONT SIZE=2>E-mail Jim Fly</A>
+
+	</TABLE>
+</FORM>
+</TABLE>
+
+<COMMENT><!--   BEGIN ILLUMINATION VS FIELD DIAMETER TABLE   --></COMMENT>
+
+<TABLE WIDTH=700 COLS=9 BORDER=5 CELLSPACING=5 CELLPADDING=2 ALIGN="center">
+
+<COMMENT><!--  BEGIN GRAPH APPLET
+
+<TR><TD>
+	<TABLE WIDTH=575 BORDER=0 CELLSPACING=0 CELLPADDING=2 ALIGN="center">
+	<TR>
+	<TD ALIGN="center"><APPLET CODE="GraphApp.class" NAME="graph" WIDTH=620 HEIGHT=400>
+	[Graph applet]
+	</APPLET>
+	</TR>
+	</TABLE>
+
+--></COMMENT>
+
+</TABLE>
+</BODY>
+</HTML>
+
